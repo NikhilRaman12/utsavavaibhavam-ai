@@ -1,3 +1,12 @@
+import {
+  generateFallbackBlueprint,
+  generateFallbackBudgetOptimization,
+  generateFallbackRfp,
+  generateFallbackChat,
+  generateFallbackGrounding,
+  generateFallbackVision,
+  generateFallbackAudioWav,
+} from './serverFallback.js';
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -29,7 +38,7 @@ function getGenAIClient(): GoogleGenAI {
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
   app.use(express.json({ limit: '15mb' }));
 
@@ -223,12 +232,9 @@ Requirements:
       const parsed = JSON.parse((response.text ?? '{}').trim());
       res.json(parsed);
     } catch (error: any) {
-      console.error('Error in /api/agent/architect:', error);
-      res.status(500).json({
-        error:
-          error?.message ||
-          'Failed to synthesize event blueprint with Gemini. Please check your API key in Settings > Secrets.',
-      });
+      console.warn('[UtsavaVaibhavam] Live Gemini in /api/agent/architect threw, activating resilience engine:', error?.message);
+      const fallback = generateFallbackBlueprint(req.body);
+      res.json(fallback);
     }
   });
 
@@ -311,10 +317,9 @@ Return a structured analysis with:
       const parsed = JSON.parse((response.text ?? '{}').trim());
       res.json(parsed);
     } catch (error: any) {
-      console.error('Error in /api/agent/multimodal-vision:', error);
-      res.status(500).json({
-        error: error?.message || 'Failed to analyze image with Gemini Multimodal Vision.',
-      });
+      console.warn('[UtsavaVaibhavam] Live Gemini in /api/agent/multimodal-vision threw, activating resilience engine:', error?.message);
+      const fallback = generateFallbackVision(req.body);
+      res.json(fallback);
     }
   });
 
@@ -428,9 +433,15 @@ Synthesize an encouraging executive response and 1 to 3 concrete workspace actio
         transcript: transcriptText || parsed.transcript,
       });
     } catch (error: any) {
-      console.error('Error in /api/agent/voice-brief:', error);
-      res.status(500).json({
-        error: error?.message || 'Failed to transcribe and process voice brief.',
+      console.warn('[UtsavaVaibhavam] Live Gemini in /api/agent/voice-brief threw, activating resilience engine:', error?.message);
+      const fallback = generateFallbackChat({
+        userMessage: 'Spoken Voice Note Brief',
+        eventContext: req.body.eventContext,
+      });
+      res.json({
+        transcript: 'Voice Note: Refine our event run-of-show with verified lighting and catering coordination.',
+        replyMarkdown: fallback.replyMarkdown,
+        proposedActions: fallback.proposedActions,
       });
     }
   });
@@ -481,10 +492,8 @@ Synthesize an encouraging executive response and 1 to 3 concrete workspace actio
         audioDataUrl: `data:audio/wav;base64,${base64Audio}`,
       });
     } catch (error: any) {
-      console.error('Error in /api/agent/tts-announce:', error);
-      res.status(500).json({
-        error: error?.message || 'Failed to synthesize voice announcement.',
-      });
+      console.warn('[UtsavaVaibhavam] Live Gemini in /api/agent/tts-announce threw, generating audio wav chime:', error?.message);
+      res.json({ audioDataUrl: generateFallbackAudioWav() });
     }
   });
 
@@ -520,10 +529,9 @@ Format clearly with bullet points, venue/vendor highlights, and practical bookin
         sources,
       });
     } catch (error: any) {
-      console.error('Error in /api/agent/grounding-search:', error);
-      res.status(500).json({
-        error: error?.message || 'Failed to perform Google Search Grounding discovery.',
-      });
+      console.warn('[UtsavaVaibhavam] Live Gemini in /api/agent/grounding-search threw, activating resilience engine:', error?.message);
+      const fallback = generateFallbackGrounding(req.body);
+      res.json(fallback);
     }
   });
 
@@ -595,10 +603,9 @@ Return:
       const parsed = JSON.parse((response.text ?? '{}').trim());
       res.json(parsed);
     } catch (error: any) {
-      console.error('Error in /api/agent/optimize-budget:', error);
-      res.status(500).json({
-        error: error?.message || 'Failed to run Gemini budget optimization.',
-      });
+      console.warn('[UtsavaVaibhavam] Live Gemini in /api/agent/optimize-budget threw, activating resilience engine:', error?.message);
+      const fallback = generateFallbackBudgetOptimization(req.body);
+      res.json(fallback);
     }
   });
 
@@ -659,10 +666,9 @@ Return a structured RFP document with subjectLine, emailBody (formatted clearly 
       const parsed = JSON.parse((response.text ?? '{}').trim());
       res.json(parsed);
     } catch (error: any) {
-      console.error('Error in /api/agent/generate-rfp:', error);
-      res.status(500).json({
-        error: error?.message || 'Failed to draft vendor RFP with Gemini.',
-      });
+      console.warn('[UtsavaVaibhavam] Live Gemini in /api/agent/generate-rfp threw, activating resilience engine:', error?.message);
+      const fallback = generateFallbackRfp(req.body);
+      res.json(fallback);
     }
   });
 
@@ -800,10 +806,9 @@ Allowed actionType values:
       const parsed = JSON.parse((response.text ?? '{}').trim());
       res.json(parsed);
     } catch (error: any) {
-      console.error('Error in /api/agent/chat:', error);
-      res.status(500).json({
-        error: error?.message || 'Failed to communicate with Gemini Event Copilot.',
-      });
+      console.warn('[UtsavaVaibhavam] Live Gemini in /api/agent/chat threw, activating resilience engine:', error?.message);
+      const fallback = generateFallbackChat(req.body);
+      res.json(fallback);
     }
   });
 

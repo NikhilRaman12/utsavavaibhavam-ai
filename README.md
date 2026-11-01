@@ -13,7 +13,7 @@
 
 ## 📖 Project Overview
 
-**UtsavaVaibhavam AI (उत्सववैभवम् AI)** bridges cultural grandeur (*Utsava & Vaibhavam*) with a multimodal, consumer-grade **GenAI Event Experience Platform**. Built for families, luxury wedding producers, cultural committees, and corporate hosts, it replaces fragmented spreadsheets with a visual-first experience workspace for **South Indian Temple & Heritage Muhurthams (Kumbakonam), Royal Multi-Day Shaadis, Western Receptions, Milestone Birthdays, and Community Festivals**.
+**UtsavaVaibhavam AI (उत्सववैभवम् AI)** bridges cultural grandeur (*Utsava & Vaibhavam*) with a multimodal, consumer-grade **GenAI Event Experience Platform**. Built for families, luxury wedding producers, cultural committees, and corporate hosts, it replaces fragmented spreadsheets with a visual-first experience workspace for **ALL event archetypes: South Indian Vedic Muhurthams (Kumbakonam), Royal Multi-Day Shaadis, Western Receptions, Milestone Birthdays, Community Festivals, Corporate Tech Summits & Intimate Private Dining**.
 
 ### 🔗 Live Demo & Preview Links
 - **Shared Application Preview**: [https://ais-pre-kyyfh2afsrg6kj4hm5phrr-75524930862.asia-east1.run.app](https://ais-pre-kyyfh2afsrg6kj4hm5phrr-75524930862.asia-east1.run.app)

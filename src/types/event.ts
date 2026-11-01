@@ -1,4 +1,11 @@
-export type EventArchetypeId = 'kumbakonam' | 'shaadi' | 'wedding' | 'birthday' | 'community';
+export type EventArchetypeId =
+  | 'kumbakonam'
+  | 'shaadi'
+  | 'wedding'
+  | 'birthday'
+  | 'community'
+  | 'corporate'
+  | 'intimate';
 
 export interface ColorSwatch {
   name: string;
