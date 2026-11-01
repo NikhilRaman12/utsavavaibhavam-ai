@@ -1,0 +1,6 @@
+{
+  "name": "UtsavaVaibhavam AI",
+  "description": "GenAI-powered event planning and run-of-show orchestration studio for weddings, milestone birthdays, and community galas with algorithmic budgets, timelines, vendor checklists, and personalized ideas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
