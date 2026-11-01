@@ -408,6 +408,8 @@ export const SpatialVenueCanvas: React.FC<SpatialVenueCanvasProps> = ({
           <button
             type="button"
             onClick={() => setShowFlowVectors((p) => !p)}
+            aria-label="Toggle guest flow vectors"
+            aria-pressed={showFlowVectors}
             className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
               showFlowVectors
                 ? 'bg-amber-500/20 border-amber-400 text-amber-200'
@@ -496,6 +498,7 @@ export const SpatialVenueCanvas: React.FC<SpatialVenueCanvasProps> = ({
                   key={z.id}
                   type="button"
                   onClick={() => setSelectedZoneId(z.id)}
+                  aria-label={`Select venue zone: ${z.name}`}
                   style={{
                     left: `${z.x}%`,
                     top: `${z.y}%`,

@@ -1,3 +1,11 @@
+
+function sanitizeText(str?: string): string {
+  if (!str) return '';
+  return String(str)
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/[<>]/g, '')
+    .trim();
+}
 /**
  * UtsavaVaibhavam AI — Production Fallback & Resilience Engine
  * Provides graceful, high-fidelity synthetic responses when external AI APIs
@@ -49,7 +57,7 @@ export function generateFallbackBlueprint(params: {
 
   return {
     concept: {
-      conceptName: `${eventTitle || archetypeLabel} — Curated Signature Vaibhavam`,
+      conceptName: `${sanitizeText(eventTitle) || sanitizeText(archetypeLabel)} — Curated Signature Vaibhavam`,
       editorialNarrative: `An immersive celebration of ${theme} in ${city || 'our signature venue'}, designed for ${guestCount} guests. Harmonizes spatial elegance, seasonal culinary theater, and seamless run-of-show orchestration.`,
       spatialScenography: `Multi-zoned architectural layout featuring an arrival promenade, focal ceremonial/plenary pavilion, hospitality dining hall, and acoustic lounge.`,
       recommendedCatering: dietaryNotes || 'Multi-course seasonal menu with regional signature delicacies and bespoke beverage pairings.',

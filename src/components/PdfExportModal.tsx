@@ -153,6 +153,8 @@ export const PdfExportModal: React.FC<PdfExportModalProps> = ({
             <button
               type="button"
               onClick={handleDownloadPdf}
+              aria-label="Export Master Run of Show Executive PDF dossier"
+              title="Download executive PDF dossier"
               disabled={isGeneratingPdf}
               className="px-4 py-2 text-xs font-semibold text-stone-950 bg-amber-400 hover:bg-amber-300 disabled:opacity-60 rounded-xl flex items-center gap-2 cursor-pointer transition-colors"
             >
@@ -168,6 +170,8 @@ export const PdfExportModal: React.FC<PdfExportModalProps> = ({
             <button
               type="button"
               onClick={onClose}
+              aria-label="Close export dossier modal"
+              title="Close modal"
               className="p-2 text-stone-400 hover:text-white cursor-pointer"
             >
               <X className="w-5 h-5" />

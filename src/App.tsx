@@ -1316,10 +1316,13 @@ export default function App() {
         </a>
 
         {/* Zone 2: 5 concise single-line navigation links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
+        <nav aria-label="Primary Workspace Navigation" role="tablist" className="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
           <button
             type="button"
             onClick={() => setActiveTab('feed')}
+            role="tab"
+            aria-selected={activeTab === 'feed'}
+            aria-label="Feed Workspace View"
             className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'feed'
                 ? 'border-amber-800 text-stone-950 font-semibold'
@@ -1331,6 +1334,9 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('timeline')}
+            role="tab"
+            aria-selected={activeTab === 'timeline'}
+            aria-label="Timeline Workspace View"
             className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'timeline'
                 ? 'border-amber-800 text-stone-950 font-semibold'
@@ -1342,6 +1348,9 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('spatial')}
+            role="tab"
+            aria-selected={activeTab === 'spatial'}
+            aria-label="Spatial Workspace View"
             className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'spatial'
                 ? 'border-amber-800 text-stone-950 font-semibold'
@@ -1353,6 +1362,9 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('budget')}
+            role="tab"
+            aria-selected={activeTab === 'budget'}
+            aria-label="Budget Workspace View"
             className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'budget'
                 ? 'border-amber-800 text-stone-950 font-semibold'
@@ -1364,6 +1376,9 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('vendors')}
+            role="tab"
+            aria-selected={activeTab === 'vendors'}
+            aria-label="Vendors Workspace View"
             className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'vendors'
                 ? 'border-amber-800 text-stone-950 font-semibold'
