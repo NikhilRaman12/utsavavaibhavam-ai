@@ -16,7 +16,8 @@
 **UtsavaVaibhavam AI (उत्सववैभवम् AI)** bridges cultural grandeur (*Utsava & Vaibhavam*) with a multimodal, consumer-grade **GenAI Event Experience Platform**. Built for families, luxury wedding producers, cultural committees, and corporate hosts, it replaces fragmented spreadsheets with a visual-first experience workspace for **ALL event archetypes: South Indian Vedic Muhurthams (Kumbakonam), Royal Multi-Day Shaadis, Western Receptions, Milestone Birthdays, Community Festivals, Corporate Tech Summits & Intimate Private Dining**.
 
 ### 🔗 Live Demo & Preview Links
-- **Shared Application Preview**: [https://ais-pre-kyyfh2afsrg6kj4hm5phrr-75524930862.asia-east1.run.app](https://ais-pre-kyyfh2afsrg6kj4hm5phrr-75524930862.asia-east1.run.app)
+- **Live Production Web Application**: [https://nikhilraman12.github.io/utsavavaibhavam-ai/](https://nikhilraman12.github.io/utsavavaibhavam-ai/)
+- **Shared AI Studio Cloud Run Preview**: [https://ais-pre-kyyfh2afsrg6kj4hm5phrr-75524930862.asia-east1.run.app](https://ais-pre-kyyfh2afsrg6kj4hm5phrr-75524930862.asia-east1.run.app)
 - **GitHub Repository**: [https://github.com/NikhilRaman12/utsavavaibhavam-ai](https://github.com/NikhilRaman12/utsavavaibhavam-ai)
 
 ---
