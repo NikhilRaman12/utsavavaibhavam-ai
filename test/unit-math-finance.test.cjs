@@ -73,3 +73,4 @@ describe('Unit Test Suite: Financial Modeling & Algorithmic Budget Engine', () =
     assert.strictEqual(normalizedBudget, 0);
   });
 });
+

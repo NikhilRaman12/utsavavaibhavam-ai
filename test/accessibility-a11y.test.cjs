@@ -44,3 +44,4 @@ describe('Accessibility (A11y) & WCAG 2.1 Compliance Suite', () => {
     assert.ok(eb.includes('aria-live="assertive"'), 'Error messages must announce assertively to screen readers');
   });
 });
+
