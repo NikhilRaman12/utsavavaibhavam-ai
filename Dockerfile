@@ -17,3 +17,4 @@ EXPOSE 8080
 
 # Start production server
 CMD ["npx", "tsx", "server.ts"]
+
