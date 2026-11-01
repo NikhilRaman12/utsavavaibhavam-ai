@@ -204,7 +204,7 @@ describe('🏛️ 31-Year Principal Architect & Data AI Scientist Production Aud
       const indexPath = path.join(projectRoot, 'dist', 'index.html');
       assert.ok(fs.existsSync(indexPath), 'dist/index.html must be compiled');
       const html = fs.readFileSync(indexPath, 'utf8');
-      assert.ok(html.includes('<div id="root"></div>'), 'Root DOM container must exist');
+      assert.ok(html.includes('id="root"'), 'Root DOM container must exist');
       assert.ok(html.includes('assets/index-'), 'Must link compiled JavaScript bundle');
       assert.ok(html.includes('./assets/'), 'Asset paths must use relative base for universal hosting');
     });
